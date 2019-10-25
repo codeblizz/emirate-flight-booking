@@ -1,0 +1,52 @@
+Noun                        Verb                         Adjective
+------					   ------						------------
+Users					  register()					Flight-Cancelled/ticketCancelled
+Guests					   logIn()						Flight-Delayed
+Admins					   logOut()					    Flight-Postponed
+AdminWorkers 			  bookFlight()					FlightInfo-Inquired
+Flight					  cancelFlight					
+Airport					  postponeFlight()
+Ticket					  inquireFlightInfo()
+Weather					  queryFlightOperation()
+Airplane				  availableFlight()
+						  oneWayTicket()
+						  twowaysTicket()
+						  refundTicket()
+						  roundTripTicket()
+						  weatherCondition()
+						  
+						  
+Methods						  
+--------						  
+Users							Guest					  SuperAdmin			    AdminWorkers
+------						   -------					  ---------					---------
+register()-post			 register()-post			  register()-post			register(-post
+login()						 inquireFlightInfo()		  login()					login()
+logout()					queryFlightOperation()		  logout()					logout()
+bookFlight()-post																	bookFlight()-post
+cancelFlight()-delete															  cancelFlight()-delete
+postponeFlight()-put														      postponeFlight()-put
+inquireFlightInfo()-get
+queryFlightOperation()-post
+
+
+Other Methods-
+
+
+
+
+
+Attributes
+-----------
+Guests---FirstName, LastName, e-mail, userName, password, passportNumber, phoneNumber
+Users---FirstName, LastName, e-mail, userName, password, passportNumber, phoneNumber
+AdminWorkers---FirstName, LastName, e-mail, userName, password, passportNumber, phoneNumber, staffId
+Admins---FirstName, LastName, e-mail, userName, password, passportNumber, phoneNumber, staffId, adminId
+Flight---flightNumber, flightStatus, flightName, flightDateTime
+Airport---airlineRegistrationId, airportMaintenance, airportClosed, airportLocation
+Ticket---ticketNumber, seatNumber, ticketCancelled, ticketSold, ticketRemaining
+Airplane---Id, airplaneModel, fuelCapacitor, engineCapacity 
+WeatherCondition---weatherReport, travelCondition	
+AirRoute---NorthAmerica, SouthAmerica, Uk, EU, Africa, Australia, Asia
+Bookings--bookingId, totalBookings, bookingStatus			  
+						  
