@@ -2,8 +2,10 @@ package com.codeblizz.developer.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,8 +18,11 @@ import lombok.RequiredArgsConstructor;
 public class Ticket {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long ticketNumber;
+	@GeneratedValue(generator="ticket-generator")
+	@GenericGenerator(name="ticket-generator", 
+			parameters=@Parameter(name="prefix", value="ticket"),
+			strategy="com.codeblizz.hibernate.pojo.generator.MyGenerator")
+	private String ticketNumber;
 	private Long seatNumber;
 	private Integer ticketCancelled; 
 	private Integer ticketSold; 

@@ -2,8 +2,10 @@ package com.codeblizz.developer.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,14 +19,17 @@ import lombok.RequiredArgsConstructor;
 public class Passenger {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	Long id;
-	String firstName;
-	String lastName;
-	String email;
+	@GeneratedValue(generator="passenger-generator")
+	@GenericGenerator(name="passenger-generator" ,
+			parameters = @Parameter(name="prefix", value="passenger"),
+			strategy = "com.codeblizz.hibernate.pojo.generator.MyGenerator")
+	public String passengerId;
+	public String firstName;
+	public String lastName;
+	public String email;
 	@NonNull
-	String userName;
-	String password;
-	String passportNumber;
-	String phoneNumber;
+	public String userName;
+	public String password;
+	public String passportNumber;
+	public String phoneNumber;
 }

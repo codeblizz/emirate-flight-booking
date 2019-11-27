@@ -4,8 +4,10 @@ import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,8 +21,11 @@ import lombok.RequiredArgsConstructor;
 public class Flight {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long flightNumber;
+	@GeneratedValue(generator = "flight-generator")
+    @GenericGenerator(name = "flight-generator", 
+      parameters = @Parameter(name = "prefix", value = "flight"), 
+      strategy = "com.codeblizz.hibernate.pojo.generator.MyGenerator")
+	private String flightNumber;
 	@NonNull
 	private String flightName;
 	private String flightType;

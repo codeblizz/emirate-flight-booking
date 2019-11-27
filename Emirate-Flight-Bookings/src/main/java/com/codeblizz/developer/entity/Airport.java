@@ -16,8 +16,8 @@ import lombok.RequiredArgsConstructor;
 public class Airport {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	public Long airlineRegistrationId;
+	@GeneratedValue
+	public String airlineRegistrationId;
 	public Boolean airportMaintenance; 
 	public Boolean airportClosed; 
 	public String airportLocation; 
